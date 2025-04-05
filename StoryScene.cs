@@ -5,6 +5,8 @@ public class StoryScene
 {
     public string Description { get; set; } = string.Empty;
     public Dictionary<string, string> Choices { get; set; } = new Dictionary<string, string>();
+    public int HealthImpact { get; set; } = -50;
+    public string? ItemReward { get; set; } = null;
 
     public void DisplayScene()
     {
@@ -23,7 +25,7 @@ public static class SceneGenerator
     {
         if (unusedScenes.Count == 0)
         {
-            Console.WriteLine("You've encountered all the scenes! The adventure is over.");
+            Console.WriteLine("Game over! No more scenes left.");
             return null;
         }
 
@@ -41,6 +43,7 @@ public static class SceneGenerator
                     { "1", "Investigate the source of the noises" },
                     { "2", "Stay on the main path" }
                 };
+                scene.HealthImpact = -50; // Major health loss for investigating
                 break;
             case 2:
                 scene.Description = "You approach a tall mountain. An icy wind breezes at you.";
@@ -49,6 +52,7 @@ public static class SceneGenerator
                     { "1", "Brave the treacherous climb" },
                     { "2", "Take the safer path around" }
                 };
+                scene.HealthImpact = -50; // Major health loss for climbing
                 break;
             case 3:
                 scene.Description = "You stumble upon an abandoned village. Shadows flicker in the dark.";
@@ -57,6 +61,7 @@ public static class SceneGenerator
                     { "1", "Search the village for supplies" },
                     { "2", "Retreat to safety" }
                 };
+                scene.HealthImpact = -50; // Major health loss for searching
                 break;
             default:
                 throw new Exception("Invalid scene type generated");

@@ -8,21 +8,34 @@ class Program
         Player player = new Player();
         Console.WriteLine("Enter your name:");
         player.Name = Console.ReadLine() ?? "Unnamed Hero";
-        player.Health = 100;
 
         Console.WriteLine("Choose your character type: Warrior or Mage");
         string charType = Console.ReadLine()?.ToLower() ?? "warrior";
+
+        while (charType != "warrior" && charType != "mage")
+        {
+            Console.WriteLine("Invalid character type. Please choose either Warrior or Mage.");
+            charType = Console.ReadLine()?.ToLower() ?? "warrior";
+        }
+
         Character character = charType == "warrior" ? new Warrior() : new Mage();
         character.DisplayType();
 
         int progress = 0;
-        int victoryThreshold = 5;
+        int victoryThreshold = 3;
         Random random = new Random();
 
         // Gameplay Loop
         while (player.Health > 0)
         {
             StoryScene scene = SceneGenerator.GenerateScene(random);
+            if (scene == null)
+            {
+
+                Console.WriteLine("Congratulations! You've completed your journey and emerged victorious with health intact!");
+                break;
+            }
+
             scene.DisplayScene();
 
             Console.WriteLine("Choose an option (1 or 2):");
@@ -30,7 +43,7 @@ class Program
 
             if (!string.IsNullOrEmpty(choice) && scene.Choices.ContainsKey(choice))
             {
-                int healthChange = choice == "1" ? -10 : +10;
+                int healthChange = choice == "1" ? -50 : +10;
                 player.Health += healthChange;
                 Console.WriteLine($"Your health is now {player.Health}");
 
@@ -38,7 +51,7 @@ class Program
 
                 if (progress >= victoryThreshold)
                 {
-                    Console.WriteLine("Congratulations! You've braved the challenges and emerged victorious!");
+                    Console.WriteLine("Congratulations! You've completed your journey and emerged victorious with health intact!");
                     break;
                 }
             }
@@ -51,6 +64,7 @@ class Program
             if (player.Health <= 0)
             {
                 Console.WriteLine("Game over! You ran out of health.");
+                break;
             }
         }
     }
