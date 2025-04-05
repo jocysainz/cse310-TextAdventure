@@ -1,5 +1,6 @@
 ﻿#nullable enable
 using System;
+using System.Collections.Generic;
 
 class Program
 {
@@ -40,18 +41,27 @@ class Program
 
             Console.WriteLine("Choose an option (1 or 2):");
             string? choice = Console.ReadLine()?.Trim();
-            if (!string.IsNullOrEmpty(choice) && int.TryParse(choice, out int choiceIndex) && choiceIndex >= 1 && choiceIndex <= scene.Choices.Count)
-            {
-                Choice selectedChoice = scene.Choices[choiceIndex - 1];
-                character.Health += selectedChoice.HealthImpact;
-                Console.WriteLine($"Your health is now {character.Health}");
 
-                if (!string.IsNullOrEmpty(scene.ItemReward))
+            if (!string.IsNullOrEmpty(choice))
+            {
+                var selectedChoice = scene.Choices.Find(c => c.ChoiceNumber.ToString() == choice);
+                
+                if (selectedChoice.Equals(default(Choice)))
                 {
-                    Console.WriteLine($"You found a {scene.ItemReward}!");
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    continue;
                 }
 
-                progress += choice == "1" ? 1 : 0;
+                int healthChange = selectedChoice.ChoiceNumber == 1 ? scene.HealthImpact : 10;
+                character.Health += healthChange;
+                Console.WriteLine($"Your health is now {character.Health}");
+
+                if (scene.Reward.HasValue)
+                {
+                    Console.WriteLine($"You found a {scene.Reward.Value.Name} that grants {scene.Reward.Value.Effect}!");
+                }
+
+                progress += selectedChoice.ChoiceNumber == 1 ? 1 : 0;
 
                 if (progress >= victoryThreshold)
                 {
