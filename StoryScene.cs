@@ -1,4 +1,4 @@
-#nullable enable
+#nullable enable  
 using System;
 using System.Collections.Generic;
 
@@ -22,7 +22,7 @@ public class StoryScene
 public static class SceneGenerator
 {
     private static List<int> unusedScenes = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
-    private static int maxScenes = 5;
+    private static int maxScenes = 5; 
 
     public static StoryScene? GenerateScene(Random random)
     {
@@ -117,7 +117,7 @@ public static class SceneGenerator
                 throw new Exception("Invalid scene type generated");
         }
 
-        maxScenes--;  
+        maxScenes--;
 
         return scene;
     }

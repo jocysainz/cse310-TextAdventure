@@ -27,7 +27,7 @@ class Program
         Random random = new Random();
 
         // Gameplay Loop
-        while (player.Health > 0)
+        while (character.Health > 0)
         {
             StoryScene? scene = SceneGenerator.GenerateScene(random);
             if (scene == null)
@@ -43,9 +43,14 @@ class Program
 
             if (!string.IsNullOrEmpty(choice) && scene.Choices.ContainsKey(choice))
             {
-                int healthChange = choice == "1" ? -50 : +10;
-                player.Health += healthChange;
-                Console.WriteLine($"Your health is now {player.Health}");
+                int healthChange = choice == "1" ? scene.HealthImpact : +10;
+                character.Health += healthChange;
+                Console.WriteLine($"Your health is now {character.Health}");
+
+                if (!string.IsNullOrEmpty(scene.ItemReward))
+                {
+                    Console.WriteLine($"You found a {scene.ItemReward}!");
+                }
 
                 progress += choice == "1" ? 1 : 0;
 
@@ -61,7 +66,7 @@ class Program
             }
 
             // Check for lose condition
-            if (player.Health <= 0)
+            if (character.Health <= 0)
             {
                 Console.WriteLine("Game over! You ran out of health.");
                 break;
