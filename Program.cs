@@ -32,7 +32,7 @@ class Program
             StoryScene? scene = SceneGenerator.GenerateScene(random);
             if (scene == null)
             {
-                Console.WriteLine("Game over! No more scenes left.");
+                Console.WriteLine(":)");
                 break;
             }
 
