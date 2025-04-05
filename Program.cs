@@ -40,11 +40,10 @@ class Program
 
             Console.WriteLine("Choose an option (1 or 2):");
             string? choice = Console.ReadLine()?.Trim();
-
-            if (!string.IsNullOrEmpty(choice) && scene.Choices.ContainsKey(choice))
+            if (!string.IsNullOrEmpty(choice) && int.TryParse(choice, out int choiceIndex) && choiceIndex >= 1 && choiceIndex <= scene.Choices.Count)
             {
-                int healthChange = choice == "1" ? scene.HealthImpact : +10;
-                character.Health += healthChange;
+                Choice selectedChoice = scene.Choices[choiceIndex - 1];
+                character.Health += selectedChoice.HealthImpact;
                 Console.WriteLine($"Your health is now {character.Health}");
 
                 if (!string.IsNullOrEmpty(scene.ItemReward))
