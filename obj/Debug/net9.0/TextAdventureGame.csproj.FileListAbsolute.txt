@@ -12,3 +12,4 @@ C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\refint\TextAdven
 C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.pdb
 C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.genruntimeconfig.cache
 C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\ref\TextAdventureGame.dll
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.sourcelink.json
