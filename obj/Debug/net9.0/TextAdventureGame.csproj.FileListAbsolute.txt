@@ -1,0 +1,14 @@
+C:\Users\laura\code\TextGame\TextAdventureGame\bin\Debug\net9.0\TextAdventureGame.exe
+C:\Users\laura\code\TextGame\TextAdventureGame\bin\Debug\net9.0\TextAdventureGame.deps.json
+C:\Users\laura\code\TextGame\TextAdventureGame\bin\Debug\net9.0\TextAdventureGame.runtimeconfig.json
+C:\Users\laura\code\TextGame\TextAdventureGame\bin\Debug\net9.0\TextAdventureGame.dll
+C:\Users\laura\code\TextGame\TextAdventureGame\bin\Debug\net9.0\TextAdventureGame.pdb
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.AssemblyInfoInputs.cache
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.AssemblyInfo.cs
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.csproj.CoreCompileInputs.cache
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.dll
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\refint\TextAdventureGame.dll
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.pdb
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\TextAdventureGame.genruntimeconfig.cache
+C:\Users\laura\code\TextGame\TextAdventureGame\obj\Debug\net9.0\ref\TextAdventureGame.dll
