@@ -15,34 +15,39 @@ class Program
         Character character = charType == "warrior" ? new Warrior() : new Mage();
         character.DisplayType();
 
-        // Story Scene Initialization
-        StoryScene scene = new StoryScene
-        {
-            Description = "You stand at a crossroads. Do you take the path to the forest or the mountain?",
-            Choices = new Dictionary<string, int>
-            {
-                { "1", -10 }, // Simplified keys for easier input handling
-                { "2", -20 }
-            }
-        };
+        int progress = 0;
+        int victoryThreshold = 5;
+        Random random = new Random();
 
         // Gameplay Loop
         while (player.Health > 0)
         {
+            StoryScene scene = SceneGenerator.GenerateScene(random);
             scene.DisplayScene();
+
             Console.WriteLine("Choose an option (1 or 2):");
             string? choice = Console.ReadLine()?.Trim();
 
-            if (!string.IsNullOrEmpty(choice) && scene.Choices.TryGetValue(choice, out int healthChange))
+            if (!string.IsNullOrEmpty(choice) && scene.Choices.ContainsKey(choice))
             {
+                int healthChange = choice == "1" ? -10 : +10;
                 player.Health += healthChange;
                 Console.WriteLine($"Your health is now {player.Health}");
+
+                progress += choice == "1" ? 1 : 0;
+
+                if (progress >= victoryThreshold)
+                {
+                    Console.WriteLine("Congratulations! You've braved the challenges and emerged victorious!");
+                    break;
+                }
             }
             else
             {
                 Console.WriteLine("Invalid choice. Please try again.");
             }
 
+            // Check for lose condition
             if (player.Health <= 0)
             {
                 Console.WriteLine("Game over! You ran out of health.");
