@@ -7,7 +7,7 @@ I developed a text game adventure game in C# that shows key points of the langua
 I wanted to challenge myself to learn a new way to create an interactive game that combines storytelling and interactive gameplay. By doing all of that it strengheted my understanding of C# and be a better coder.
 
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/S1syFh3_jAo?si=rZr_OzBh0tHYCwmR)
 
 # Development Environment
 

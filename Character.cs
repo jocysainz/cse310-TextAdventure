@@ -1,11 +1,11 @@
 public abstract class Character
 {
-    public string Type { get; protected set; } = string.Empty;
-    public int Health { get; set; }
-    public abstract void DisplayType();
+    public string Type { get; protected set; } = string.Empty;//Characters type
+    public int Health { get; set; }//Characters health which is defined by its classes
+    public abstract void DisplayType();//Abstract method to display the specific messege
 }
 
-public class Warrior : Character
+public class Warrior : Character //Warrior class inherits from the character
 {
     public Warrior() 
     {
@@ -16,6 +16,7 @@ public class Warrior : Character
     public override void DisplayType() => Console.WriteLine("You are a mighty Warrior!");
 }
 
+//Mage class inherits from the character
 public class Mage : Character
 {
     public Mage() 
