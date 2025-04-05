@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 
@@ -21,12 +22,12 @@ public class StoryScene
 public static class SceneGenerator
 {
     private static List<int> unusedScenes = new List<int> { 1, 2, 3 };
-    public static StoryScene GenerateScene(Random random)
+    public static StoryScene? GenerateScene(Random random)
     {
         if (unusedScenes.Count == 0)
         {
             Console.WriteLine("Game over! No more scenes left.");
-            return null;
+            return null; // Return null when no scenes are available
         }
 
         int index = random.Next(unusedScenes.Count);

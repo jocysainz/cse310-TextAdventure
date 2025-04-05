@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 
 class Program
 {
@@ -28,11 +29,10 @@ class Program
         // Gameplay Loop
         while (player.Health > 0)
         {
-            StoryScene scene = SceneGenerator.GenerateScene(random);
+            StoryScene? scene = SceneGenerator.GenerateScene(random);
             if (scene == null)
             {
-
-                Console.WriteLine("Congratulations! You've completed your journey and emerged victorious with health intact!");
+                Console.WriteLine("Game over! No more scenes left.");
                 break;
             }
 
